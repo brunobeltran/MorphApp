@@ -1,0 +1,637 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/*
+    Designed to reset styles for a standard cross-browser interface. 
+*/
+html, body, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-size: 100%;
+	font: inherit;
+	vertical-align:baseline;
+	text-decoration:none;
+	z-index:0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section 
+{
+	display: block;
+}
+body 
+{
+	line-height: 1;
+}
+ol, ul 
+{
+	list-style: none;
+}
+blockquote, q 
+{
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after 
+{
+	content: '';
+	content: none;
+}
+table 
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+div
+{
+    position:absolute;
+}
+
+/* **************************
+***The actual CSS is here!!! */
+/* ***************************/
+
+body
+{
+	background-image: linear-gradient(bottom, rgb(6,122,27) 9%, rgb(7,51,3) 55%, rgb(61,153,15) 78%);
+	background-image: -o-linear-gradient(bottom, rgb(6,122,27) 9%, rgb(7,51,3) 55%, rgb(61,153,15) 78%);
+	background-image: -moz-linear-gradient(bottom, rgb(6,122,27) 9%, rgb(7,51,3) 55%, rgb(61,153,15) 78%);
+	background-image: -webkit-linear-gradient(bottom, rgb(6,122,27) 9%, rgb(7,51,3) 55%, rgb(61,153,15) 78%);
+	background-image: -ms-linear-gradient(bottom, rgb(6,122,27) 9%, rgb(7,51,3) 55%, rgb(61,153,15) 78%);
+	background-size:6000px 1500px;
+	background-repeat:no-repeat;
+}
+#backgroundImage
+{
+    position:absolute;
+    width:1200px;
+    height:1000px;
+    margin:0 auto;
+}
+#theWholeThing
+{
+    position:relative;
+    width:900px;
+    height:830px;
+    margin:0 auto;
+    overflow:hidden;
+    -webkit-text-size-adjust:100%;
+}
+#header
+{
+    position:relative;
+    top:0px;
+    left:0px;
+    width:900px;
+    height:50px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+h1
+{
+    text-align:center;
+    font-size:3em;
+    padding:5px;
+}
+#header > h1
+{
+        font:italic bold 4em/1em Georgia, serif;
+        background-color:rgba(100,100,255,0.8);
+}
+h3
+{
+    text-align:center;
+    font-size:2em;
+}
+.navbar
+{
+    position:relative;
+    height:25px;
+    left:200px;
+    width:500px;
+    background-color:rgba(50,50,255,.7);
+}
+.navbar > li
+{
+    display:inline;
+    padding-left:10px;
+}
+.linkbutton
+{
+    position:relative;
+    top:-1px;
+    height:25px;
+    width:150px;
+    text-decoration:none;
+}
+.linkbutton
+{
+    text-decoration:underline;
+}
+#content
+{
+    position:relative;
+    top:30px;
+    left:90px;
+    padding:10px;
+    width:700px;
+    background-color:rgba(255,255,255,0.85);
+}
+.fb-like
+{
+    position:relative;
+    left:0px;
+}
+#likeButtons > li
+{
+    display:inline;
+}
+b
+{
+    font-weight:bold;
+}
+cite
+{
+    font-style:italic;
+}
+canvas
+{
+    border:1px inset red;
+}
+li
+{
+    display:inline;
+}
+a
+{
+    text-decoration:none;
+}
+#footer
+{
+    position:absolute;
+    bottom:0px;
+    background-color:rgba(150,150,255,.9);
+    font-size:1em;
+    width:900px;
+    height:20px;
+}
+#footer > p
+{
+    padding:2px;
+    text-align:center;
+}
+
+
+/* The app's CSS, indented by <div> containment */
+button
+{
+	background-image: linear-gradient(bottom, rgb(61,227,95) 24%, rgb(21,161,58) 62%, rgb(24,217,72) 81%, rgb(34,168,65) 91%);
+	background-image: -o-linear-gradient(bottom, rgb(61,227,95) 24%, rgb(21,161,58) 62%, rgb(24,217,72) 81%, rgb(34,168,65) 91%);
+	background-image: -moz-linear-gradient(bottom, rgb(61,227,95) 24%, rgb(21,161,58) 62%, rgb(24,217,72) 81%, rgb(34,168,65) 91%);
+	background-image: -webkit-linear-gradient(bottom, rgb(61,227,95) 24%, rgb(21,161,58) 62%, rgb(24,217,72) 81%, rgb(34,168,65) 91%);
+	background-image: -ms-linear-gradient(bottom, rgb(61,227,95) 24%, rgb(21,161,58) 62%, rgb(24,217,72) 81%, rgb(34,168,65) 91%);
+	border-radius:10px;
+	font-weight:bold;
+}
+.buttonPressed
+{
+	background-image: linear-gradient(bottom, rgb(51,255,51) 49%, rgb(0,166,0) 75%, rgb(51,112,58) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(51,255,51) 49%, rgb(0,166,0) 75%, rgb(51,112,58) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(51,255,51) 49%, rgb(0,166,0) 75%, rgb(51,112,58) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(51,255,51) 49%, rgb(0,166,0) 75%, rgb(51,112,58) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(51,255,51) 49%, rgb(0,166,0) 75%, rgb(51,112,58) 100%);  
+}
+textarea
+{
+    overflow:hidden;
+    resize:none;
+    -webkit-text-size-adjust:100%;
+}
+#appContainer
+{
+    position:relative;
+    top:60px;
+    left:0px;   
+    width:900px;
+    height:390px;
+    -webkit-text-size-adjust:100%;
+    background-size:100% 100%;
+    background-repeat:none;
+    background-origin:content-box;
+    -webkit-background-origin:content-box;
+    border-top:2px inset blue;
+    border-bottom:5px inset blue;
+    font-family:"Times New Roman",Georgia,Serif;
+}
+	#west
+	{
+		top:0px;
+		left:0px;
+		width:130px;
+		height:390px;
+		overflow:hidden;
+		background-color:rgba(100,100,255,0.8);
+	}
+	    #loadBox
+	    {
+	        position:absolute;
+	        top:5px;
+	        left:5px;
+	        height:50px;
+	        width:70px;
+	        font-size:13px;
+	        background-color:rgba(200,200,255,0.9);
+	        border:2px inset blue;
+	    }
+	    #loadButton
+	    {
+	        position:absolute;
+	        left:84px;
+	        top:5px;
+	        height:50px;
+	        width:38px;
+	        background:none;
+	    }
+	    #loadButtonPressed
+	    {
+	        position:absolute;
+	        top:0px;
+	        left:0px;
+	    }
+	    #loadImg
+	    {
+	        position:absolute;
+	        left:2px;
+	        top:0px;
+	    }
+		#generationLabel
+		{
+            position:relative;
+            top:70px;
+			font-size:22.4px;
+			text-align:center;
+		}
+		#generationSelector
+		{
+		    position:absolute;
+		    top:95px;
+		    margin-left:27px;
+            border-style:inset;
+            border-color:#ddddff;
+            border-width:3px;
+            height:200px;
+            width:60px;
+            display:block;
+            text-align:center;
+            font-size:22.4px;
+            overflow:scroll;
+            background-color:rgba(200,200,255,0.9);
+		}
+		.generationNumber
+		{
+		    padding:3px;
+		    display:block;
+		}
+		.generationNumberSeperator
+		{
+		    display:block;
+		}
+		#undoButton
+		{
+		    position:absolute;
+		    bottom:10px;
+		    left:27px;
+		    height:60px;
+		    width:80px;
+            font-size:18px;
+		}
+	#north
+	{
+		top:0px;
+		left:130px;
+		text-align:center;
+		width:550px;
+		height:60px;
+		overflow:hidden;
+		background-color:rgba(100,100,255,0.8);
+	}
+	    .decoration
+	    {
+	        opacity:.5;
+	    }
+	    #decoration1
+	    {
+	        position:absolute;
+	        left:87.5px;
+	    }
+	    #decoration2
+	    {
+	        position:absolute;
+	        left:402.5px;
+	    }
+		#appTitle
+		{
+		    padding:0px;
+		    font-size:2.3em;
+		}
+		#promptLabel
+		{
+		    font-size:1.2em;
+		    background-color:rgba(255,100,100,.9);
+            margin-left:147.5px;
+            margin-right:147.5px;
+            height:20px;
+		}
+	#center
+	{
+	    left:130px;
+	    top:60px;
+	    width:560px;
+	    height:250px;
+		overflow:hidden;
+		background-color:rgba(200,255,200,0.8);
+		z-index:0;
+	}
+	    #morphTitleList1
+	    {
+	        position:absolute;
+	        left:3px;
+	        top:0px;
+	    }
+	    .morphTitleList > li
+	    {
+	        float:left;
+	        padding-top:19px;
+	        font-size:19px;
+	        padding-left:9px;
+	        margin:.5px;
+	        padding-right:9px;
+	    }
+	    #canvasList1
+	    {
+	        position:absolute;
+	        left:3px;
+	        top:40px; 
+	    }
+	    .canvasList > li
+	    {
+	        height:180px;
+	        width:70px;
+            padding-left:1px;
+	    }
+	    #genomeList1
+	    {
+	        position:absolute;
+            top:222px;
+            left:3px;
+	    }
+	    .genomeText
+	    {
+	        text-align:center;
+	        display:inline;
+	        width:69px;
+	        height:20px;
+	        padding:0px;
+	        margin:0px;
+	        border:2px inset rgba(200,255,200,0.8);
+	        background-color:rgba(230,255,230,0.9);
+	        -webkit-text-size-adjust:none;
+	        font-family:Courier,"Courier New", sans-serif;
+	        font-size:10px;
+	    }
+	    
+	#south
+	{
+	    top:310px;
+	    left:130px;
+	    height:80px;
+	    width:550px;
+	    background-color:rgba(150,150,255,0.8);
+	}
+	    #reproduceButton
+	    {
+	        position:absolute;
+	        left:50px;
+	        top:10px;
+	        width:450px;
+	        height:60px;
+            font-size:22px;
+	    }
+	    
+	#east
+	{
+		top:0px;
+		left:680px;
+		width:220px;
+		height:390px;
+		background-color:rgba(100,100,255,0.8);
+	}
+	    #saveBox
+	    {
+	        position:absolute;
+	        left:10px;
+	        top:5px;
+	        height:50px;
+	        width:100px;
+	        font-size:13px;
+	        background-color:rgba(200,200,255,0.9);
+	        border:2px inset blue;
+	    }
+	    #parentLabel
+	    {
+	        position:absolute;
+	        top:78px;
+	        left:55px;
+	        font-size:22px;
+	    }
+        #canvasList3
+        {
+            position:absolute;
+            left:10px;
+            top:100px;
+            
+        }
+        #genomeList2
+        {
+            position:absolute;
+            top:282px;
+            left:10px;
+        }
+        /* .genomeText declared in #center */
+        #toggleGenomeViewButton
+        {
+            font-size:14px;
+            position:absolute;
+            bottom:10px;
+            left:27px;
+            height:60px;
+            width:70px;
+        }
+        #tabList
+        {
+            position:absolute;
+            left:170px;
+            top:20px;
+            background:none;            
+        }
+        #mutationRateTab
+        {
+            left:0px;
+            top:0px;
+            background:none;            
+        }
+            #mutationRateWindow
+            {
+                left:50px;
+                top:20px;
+                height:120px;
+                width:170px;
+                background-color:rgba(255,100,200,0.9);
+                opacity:0.0;
+                z-index:-1;
+            }
+                #mutationRateExplanation
+                {
+                    font-size:1em;
+                    position:absolute;
+                    padding:5px;
+                    line-height:.8;
+                }
+                #mutationRateOff
+                {
+                    position:absolute;
+                    left:60px;
+                    top:48px;
+                    height:30px;
+                    width:50px;
+                }
+                #mutationRateLow
+                {
+                    position:absolute;
+                    left:5px;
+                    top:80px;
+                    height:30px;
+                    width:50px;
+
+                }
+                #mutationRateMed
+                {
+                    position:absolute;
+                    left:60px;
+                    top:80px;
+                    height:30px;
+                    width:50px;
+                }
+                #mutationRateHigh
+                {
+                    position:absolute;
+                    left:115px;
+                    top:80px;
+                    height:30px;
+                    width:50px;
+                }
+        #migrationTab
+        {
+            left:0px;
+            top:120px;
+            background:none;            
+        }
+			#migrationWindow
+			{
+				left:50px;
+				top:140px;
+				height:120px;
+				width:170px;
+				background-color:rgba(255,100,200,0.9);
+				opacity:0.0;
+				z-index:-1;
+			}
+				#migrationExplanation
+				{
+				    padding:10px;
+				    font-size:16px;
+				}
+        #showDetailTab
+        {
+            left:0px;
+            top:240px;
+            background:none;
+        }
+            #showDetailWindow
+            {
+                left:0px;
+                top:5px;
+                height:380px;
+                width:220px;
+                background-color:rgba(150,20,10,.9);
+                opacity:0.0;
+                z-index:-1;
+            }
+                #genomeText10
+                {
+                    position:absolute;
+                    left:10px;
+                    top:10px;
+                    width:138px;
+                    background-color:rgba(200,70,60,.9);
+                    border:2px inset rgba(150,20,10,.9);
+                    resize:none;
+                }
+                #morph10
+                {
+                    position:absolute;
+                    left:10px;
+                    top:10px;
+                    z-index:-1;
+                }
+                #detailLabel
+                {
+                    position:absolute;
+                    left:180px;
+                    top: 10px;
+                    font-size:55px;
+                }
+                #toggleDetailGenomeButton
+                {
+                    position:absolute;
+                    left:160px;
+                    top: 210px;
+                    height: 90px;
+                    width: 50px;
+                    font-size:.4em;
+                }
+                #submitGenomeButton
+                {
+                    position:absolute;
+                    left:160px;
+                    top: 80px;
+                    height: 40px;
+                    width: 50px;
+                    font-size:.4em;
+                }
+                #detailExplanation
+                {
+                    position:absolute;
+                    left:150px;
+                    top:125px;
+                    font-size:.6em;
+                    font-style:italic;
+                }
+            
+        
+

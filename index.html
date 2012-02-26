@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="MorphView.js"> </script>
+        <script type="text/javascript" src="MorphModel.js"> </script>
+        <script type="text/javascript" src="MorphViewController.js"> </script>
+        <link rel="shortcut icon" href="images/favicon.ico" >
+        <link rel="icon" type="image/gif" href="images/animated_favicon1.gif" >
+        <link rel="stylesheet" type="text/css" href="morph.css" />
+        <link rel="apple-touch-icon-precomposed" href="images/Morph.gif" />
+        <meta name="viewport" content="width=900; initial-scale=0.33;  maximum-scale=1.5; minimum-scale=0.33;"> 
+        <meta name="description" content="The Morph App is a fun widget that interactively showcases evolutionary principles." />
+        <meta name="keywords" content="morph, app, biology, LSU, introductory biology, intro bio, evolution, natural selection, mutation, crossing over"/>
+        <meta name="author" content="Bruno Beltran" />
+        <meta charset="UTF-8"/>
+        <!-- Tells Facebook which picture to include in "likes" -->
+        <meta property="og:image" content="https://xythos.lsu.edu/users/bbeltr1/public/images/naturalselection.jpg"/>
+        <title>Morph Applet Test Page</title> 
+        <!-- Google+ Button -->
+		<script type="text/javascript">
+		  (function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		<!-- Google Analytics -->
+        <script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-29334348-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>    
+    </head>
+    
+    
+    
+    <body>
+    <!--Facebook "Like" Button -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+    <div id="theWholeThing">
+        <img id="backgroundImage" src="images/naturalselectionsmall.jpg" alt="background image" />
+        <div id="header">
+        <h1>Morph</h1>
+        <ul class="navbar">
+			<li><a href="http://biology.lsu.edu/cos/biosci/IntroBioProgram/item37751.html"><button class="linkbutton" class="button" type="button">LSU IntroBio</button></a>
+            </li>
+            <li><a href="http://biology.lsu.edu/"><button class="linkbutton" class="button" type="button">LSU Biology</button></a>
+            </li>
+            <li><a href="http://www.lsu.edu"><button class="linkbutton" class="button" type="button">LSU</button></a>
+            </li>
+        </ul>
+        </div>
+        <div id="content">
+        <h3>What is the morph app?</h3>
+            <p id="introduction">
+            Mutations and crossing-over provide much of the raw material for evolution. Critics of the modern theory of evolution often point out that since mutation and crossing-over are largely random events, they could not possibly contribute to the evolution of such complex and highly ordered structures as are found in living systems. In his book <cite>The Blind Watchmaker,</cite> Richard Dawkins showed how powerful a force like random mutations could be in the creation of highly complex structures with a simple program. Unfortunately, Dawkins used only the properties of mutations to evolve his creatures. In 1997 Alain Gogniat wrote a Java based version of this program that not only used random mutations, but also included crossing-over between chromosomes. With Alain's permission Dr. Wischusen modified this applet to reduce the number of parameters that the user can control. It was rewritten by Bruno Beltran in Feb 2012 to work better in modern browsers. This new version of the app is only viewable in a browser with Javascript enabled.
+            </p>
+            <!-- "Like" and "Google+" buttons -->
+            <ul id="likeButtons">
+            <li><div class="fb-like" data-href="http://www.brunobeltran.com" data-send="true" data-width="450" data-show-faces="true"></div>
+            </li>
+            <li>
+            <g:plusone annotation="inline"></g:plusone>
+            </li>
+            </ul>
+            
+        </div>
+            
+            
+		<div id="appContainer" height="1" width="1">
+		<!-- It's laid out like Java's Layout Manager Would Do -->
+			<div id="west">
+			    <form name="loadForm">
+			    <textarea id="loadBox" name="loadBox" onclick="select(this)">Paste here to LOAD!</textarea>
+			    </form>
+			    <button id="loadButton" type="button" onclick="loadSession()"> 
+			    <img id="loadImg" src="images/Load2.gif" height="50" width="38"
+			    alt="Load" />
+			    <img id="loadButtonPressed" src="images/LoadPressed.gif" 
+			    height="50" width="38" alt="LoadPressed" />
+			    </button>
+				<h3 id="generationLabel">Generation#</h3>
+				<ul id="generationSelector">
+				<li id="gen0" class="generationNumber" onclick="selectGeneration(this)">0</li>
+				<li class="generationNumberSeperator">-</li>
+				</ul>
+				<button id="undoButton" type="button" onclick="undo()">UNDO</button>
+			</div>
+			<div id="north">
+			    <img id="decoration1" class="decoration" src="images/Morph.gif" alt="decoration" width="60" height="60" />
+			    <img id="decoration2" class="decoration" src="images/Morph.gif" alt="decoration" width="60" height="60" />
+				<h1 id="appTitle">Morph</h1>
+				<h3 id="promptLabel">Select two children to continue!</h3>
+			</div>
+			<div id="center">
+			    <ul class="morphTitleList" id="morphTitleList1">
+			        <li><h4>Child 1  </h4></li>
+			        <li><h4>Child 2  </h4></li>
+			        <li><h4>Child 3  </h4></li>
+			        <li><h4>Child 4  </h4></li>
+			        <li><h4>Child 5  </h4></li>
+			        <li><h4>Child 6  </h4></li>
+			        <li><h4>Child 7  </h4></li>
+			    </ul>
+				<ul class="canvasList" id="canvasList1">
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph1" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph2" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph3" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph4" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph5" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph6" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph7" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+				</ul>
+				<ul id="genomeList1">
+				    <li>
+				        <textarea class="genomeText" id="genomeText1">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText2">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText3">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText4">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText5">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText6">BGBGENOME</textarea>
+				        <textarea class="genomeText" id="genomeText7">BGBGENOME</textarea>
+				        
+				    </li>
+				</ul>
+
+			</div>
+			<div id="south">
+				<button id="reproduceButton" type="button" name="reproduce" onclick="reproduce()">REPRODUCE!!</button>
+			</div>
+			<div id="east">
+			    <textarea id="saveBox" onclick="select(this)">Click Here Copy/Paste to SAVE!
+			    
+			    Include all this text when you paste to load, otherwise Morph might not recognize your input.
+			    @@@START@@@</textarea>
+			    <!-- The spacing above is reflected in the app -->
+			    <h4 id="parentLabel">Parents</h4>
+				<ul class="canvasList" id="canvasList3">
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph8" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+					<li>
+					<canvas onclick="selectMorph(this)" class="morphCanvas" id="morph9" height="180" width="70">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+					</li>
+				</ul>
+				<ul id="genomeList2">
+				    <li>
+				        <textarea class="genomeText" id="genomeText8"></textarea>
+				        <textarea class="genomeText" id="genomeText9"></textarea>
+				    </li>
+				</ul>
+				<ul id="tabList">
+					<li>
+					<div id="mutationRateTab">
+					    <img id="mutationTabImg" src="images/Mutation.gif" alt="MutationTab" height="120" width="50" />
+					</div>
+					</li>
+					<li>
+					<div id="migrationTab">
+					    <img id="migrationTabImg" src="images/Migration.gif" alt="MigrationTab" height="120" width="50" />
+					</div>
+					</li>
+					<li>
+					<div id="showDetailTab">
+					    <img id="showDetailTabImg" src="images/ShowDetail.gif" alt="ShowDetailTab" height="120" width="50" />
+					</div>
+					</li>
+				</ul>
+				<ul id="windowList">
+					<li>
+						<div id="mutationRateWindow">
+						    <p id="mutationRateExplanation"><b>Mutation</b> affects the amount of random variation in the children's genome. </p>
+						    <button id="mutationRateOff" type="button" onclick="setMutationRate('off')"> OFF </button>
+						    <button id="mutationRateLow" type="button" onclick="setMutationRate('low')"> Low </button>
+						    <button id="mutationRateMed" type="button" onclick="setMutationRate('med')"> Med </button>
+						    <button id="mutationRateHigh" type="button" onclick="setMutationRate('high')"> High </button>
+						</div>
+					</li>
+					<li>
+						<div id="migrationWindow">
+						    <p id="migrationExplanation">You are now in <br /><b>Migration Mode</b>. <br />Click on a Child to replace it with a member of a different population. </p>
+						</div>
+					</li>
+					<li>
+						<div id="showDetailWindow">
+						    <form name="genomeForm">
+						    <textarea name="genomeText10" id="genomeText10" class="genomeText"></textarea>
+						    </form>
+						    <canvas class="morphCanvas" id="morph10" height="360" width="140">Your browser does not support HTML5. A morph would be drawn here.</canvas>
+						    <h3 id="detailLabel" class="medLabel">0<h3>
+						    <button id="toggleDetailGenomeButton" type="button"> Show/<br />Hide <br />Genome<br />Editor</button>
+						    <button id="submitGenomeButton" type="button"> Submit<br />Changes</button>
+						    <p id="detailExplanation">Select a child to view it in detail.</p>
+						</div>
+					</li>
+				</ul>
+				<button id="toggleGenomeViewButton"> Show/Hide<br />Genome</button>
+			</div>
+		</div>
+		<div id="footer">
+            <p>Comments? Questions? Suggestions? Want the morph app? Contact me:
+            <a href="mailto:brunobeltran0@gmail.com">brunobeltran0@gmail.com</a>
+            </p>
+		</div>
+	</div>
+    </body>
+
+</html>
