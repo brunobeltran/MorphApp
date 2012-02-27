@@ -22,17 +22,15 @@
      
      Possible issues: since the internals of the app rely heavily on knowing
      the DOM element id's of the app's generated tags, if you happen (unlikely)
-     to use one of these tags yourself, the app will not work.
+     to use one of these id's yourself, either the app or your site will break.
      //TODO obfuscate id's to prevent this.
      */
     
     
     
-    // NOTE: program lacks strict adherence to MVC since the view controller 
-    // "knows" parents are at indices 8 and 9 & that show detail is at index 10
-    // overall the whole app is inconsistent as to whether or not it can assume
-    // that there are 10 canvases, arranged in the "known" manner
-    // also the "View" holds state data that maybe the model should have//TODO
+    /* NOTE: program lacks strict adherence to MVC paradigm, mostly due to 
+             issues created by the implementation of MorphViewController in
+             the global namespace */
  
 
 

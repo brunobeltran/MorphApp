@@ -261,17 +261,12 @@ textarea
 	    #loadButton
 	    {
 	        position:absolute;
-	        left:84px;
+	        left:86px;
 	        top:5px;
-	        height:50px;
+	        height:60px;
 	        width:38px;
-	        background:none;
-	    }
-	    #loadButtonPressed
-	    {
-	        position:absolute;
-	        top:0px;
-	        left:0px;
+	        font-size:.9em;
+	        text-align:center;
 	    }
 	    #loadImg
 	    {
@@ -330,6 +325,15 @@ textarea
 		overflow:hidden;
 		background-color:rgba(100,100,255,0.8);
 	}
+	    #helpButton
+	    {
+	        position:absolute;
+	        top:2px;
+	        left:5px;
+	        height:55px;
+	        width:55px;
+	        color:rgba(20,20,255,1);
+	    }
 	    .decoration
 	    {
 	        opacity:.5;
@@ -352,7 +356,6 @@ textarea
 		#promptLabel
 		{
 		    font-size:1.2em;
-		    background-color:rgba(255,100,100,.9);
             margin-left:147.5px;
             margin-right:147.5px;
             height:20px;

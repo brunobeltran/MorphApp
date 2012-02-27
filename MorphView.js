@@ -11,7 +11,7 @@
  * Dr. Wishusen 2002 - First "Morph" applet, partial functionality - JAVA
  * Bruno Beltran 2012 - Current Version - HTML5/CSS3/JavaScript
 *******************************************************************************/
-
+//TODO Implement a UI for the "How to Play" feature
 
 /**OBJECT CONSTRUCTOR : MorphView
  * Takes the id of the <div> into which the app should be inserted
