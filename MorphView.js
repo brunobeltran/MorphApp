@@ -52,7 +52,7 @@ function MorphView(insertionpoint)
 MorphView.prototype.init = function()
 {
     //TODO figure out how to print a VERY long string
-}
+};
 
 /**METHOD : MorphView.draw(string, int)
  * Takes a genome and an int (number) corresponding to the canvas to draw to
@@ -72,7 +72,7 @@ MorphView.prototype.draw = function(genome, canvasNumber)
     // draw the morph
     this.phenotype(genome, canvasId);
     
-}
+};
 
 /**METHOD : MorphView.phenotype(string, int)
  * Takes a genome and an int (number) representing the canvas to draw in
@@ -121,7 +121,7 @@ MorphView.prototype.phenotype = function(genomeString, canvasId)
     }
     context.strokeStyle="black";
     context.stroke();
-}
+};
 
 /**HELPER METHOD : MorphView.transcript(string)
  * Called by MorphView.phenotype(string,int)
@@ -172,7 +172,7 @@ MorphView.prototype.transcript = function(genomeString)
 	// will recursively generate points to a stack height of treeHeight
 	this.tree(0,0,treeHeight,0);
 	return 0;
-}
+};
 
 
 /**RECURSIVE HELPER METHOD : MorphView.tree(int,int,int,int)
@@ -218,7 +218,7 @@ MorphView.prototype.tree = function(oldX, oldY, order, direction)
         this.tree(newX, newY, order - 1, direction - 1);
         this.tree(newX, newY, order - 1, direction + 1);
     }
-}
+};
 
 /**METHOD : MorphView.newGeneration()
  * Updates the generation numbers, moves selected children to the "parents" slot
@@ -252,7 +252,7 @@ MorphView.prototype.newGeneration = function()
     $(".generationNumber").css("font-weight","normal");
     // highlight the current generation
     document.getElementById("gen".concat(this.generation)).style.fontWeight = "bold";    
-}    
+};    
 
 /**METHOD : MorphView.save()
  * Write out the state of the app into the save box and MorphView.generationData
@@ -277,7 +277,7 @@ MorphView.prototype.save = function()
     }
     // gets the "detail" canvas
     document.getElementById("saveBox").innerHTML += "];"
-}
+};
 
 /**METHOD : MorphView.getGenome(int)
  * Takes a int (number) and gets the corresponding genome
@@ -286,7 +286,7 @@ MorphView.prototype.getGenome = function(index)
 {
     var id = "genomeText".concat(index.toString());
     return document.getElementById(id).innerHTML;
-}
+};
 
 /**METHOD : MorphView.highlight()
  * Takes a list of morph canvases and marks the correct ones as selected
@@ -303,5 +303,14 @@ MorphView.prototype.highlight = function(list)
     {
         list[1].style.outline="3px outset red";
     }
+};
+
+MorphView.prototype.showError = function(errstring)
+{
+    $("#errBox").html(errstring);
+    $("#errBox").css("z-index","3");
+    $("#errBox").animate({opacity:1}, 1500, function(){
+        $("#errBox").animate({opacity:0,"z-index":-3}, 2000);
+    });
 }
 

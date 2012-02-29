@@ -265,8 +265,9 @@ textarea
 	        top:5px;
 	        height:60px;
 	        width:38px;
-	        font-size:.9em;
+	        font-size:1em;
 	        text-align:center;
+	        line-height:.8;
 	    }
 	    #loadImg
 	    {
@@ -332,7 +333,7 @@ textarea
 	        left:5px;
 	        height:55px;
 	        width:55px;
-	        color:rgba(20,20,255,1);
+	        color:rgba(255,20,20,.8);
 	    }
 	    .decoration
 	    {
@@ -370,6 +371,16 @@ textarea
 		background-color:rgba(200,255,200,0.8);
 		z-index:0;
 	}
+	    #errBox
+	    {
+	        position:absolute;
+	        top:60px;
+	        width:560px;
+	        background-color:rgba(255,100,100,1);
+	        z-index:-3;
+	        text-align:center;
+	        font-size:2em;
+	    }
 	    #morphTitleList1
 	    {
 	        position:absolute;

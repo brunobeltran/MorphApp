@@ -236,12 +236,13 @@ function loadSession()
     // get the data section of the save dialog
     var newGenData = document.loadForm.loadBox.value;
     // this regex should extract every instance of an array of genome strings
-    var genExtractor = /\[(?:"([A-N])*"(,\s)*)*\]/g;
+    var genExtractor = /\[(?:"([A-M]{8}[J-N]{1})*"(,\s)*)*\]/g;
 
     var newGenerations = newGenData.match(genExtractor);
     if (newGenerations == null)
     {
-        document.loadForm.loadBox.value = "Faulty data...";
+        document.loadForm.loadBox.value = "Faulty data..."
+        appView.showError("Faulty Generation Data...");
         return;
     }
     // because of how we saved the generation data....magic happens
@@ -255,8 +256,7 @@ function loadSession()
         appView.newGeneration();
     }
     selectGeneration(
-     document.getElementById("gen".concat(appView.generationData.length-1)), 
-                                                                            -1);
+     document.getElementById("gen".concat(appView.generationData.length-1)),-1);
 }
 
 // if there have been changes to the current generation, revert, else
@@ -301,6 +301,31 @@ $(document).ready(function(){
             $("#loadButtonPressed").css("opacity",0);
         }
         $(event.target).removeClass("buttonPressed");
+    });
+    // prints the detailed instructions
+    $("#helpButton").click(function(){
+        if (document.getElementById("helpButton").innerHTML == "DONE")
+        {
+            $("#helpButton").html("HOW<br/>TO<br/>PLAY");
+            $("#errBox").animate({"opacity":0,"top":"60px","font-size":"2em"},1500);
+            $("#errBox").css({"z-index":"-3", "text-align":"center"});
+            return;
+        }
+		$("#helpButton").html("DONE");
+		var helpString = "INSTRUCTIONS:<br/>"+
+						 "(1) Select two of the Morphs labeled \"Child\"<br/>"+
+						 "(2) Click \"Reproduce\", MORPH simulates the "+ "genetics<br/>"+
+						 "(3) Use your knowledge of inheritance to select for "+ "cool features!<br/>"+
+						 "(optional) Adjust the rate of mutation, generate a "+
+						 "random morph my migration, or modify the morph's "+
+						 "genome with the tabs at right."+
+						 "<br/> Roll back to a previous generation with the "+
+						 "selector at left, or undo \"Show Detail's\" changes "+
+						 "with the UNDO button";
+		$("#errBox").html(helpString);
+		$("#errBox").css({"z-index":"3","top":"0px","font-size":"1.5em","text-align":"left"});
+		$("#errBox").animate({"opacity":1},1500);
+
     });
 	// toggles the visibility of the genome text boxes
 	$("#toggleGenomeViewButton").click(function(){
@@ -371,10 +396,17 @@ $(document).ready(function(){
 	});
 	// submits the genome changes in the "show detail" box
 	$("#submitGenomeButton").click(function(){
+	    // if there's no morph being displayed, warn the user...
+	    if (document.getElementById("detailLabel").innerHTML == 0)
+	    {
+	        appView.showError("MORPH can't detect any children in the Detail Box...");
+	        return;
+	    }
 	    var newGenome = 
-	                document.genomeForm.genomeText10.value.match(/[A-M]*[J-N]/);
+	           document.genomeForm.genomeText10.value.match(/[A-M]{8}[J-N]{1}/);
 	    if (newGenome == null)
 	    {
+	        appView.showError("Please use a valid genome, /[A-M]{8}[J-N]{1}/");
 	        return;
 	    }
 	    appView.draw(

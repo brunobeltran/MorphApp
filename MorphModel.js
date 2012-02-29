@@ -98,7 +98,7 @@ MorphModel.prototype.randomGenome = function()
 	}
 	// magically returns a string holding the new genome
 	return genomeCharArray.map(function(value){return String.fromCharCode(value);}).join().replace(/,/gi, "");
-}
+};
 
 /**METHOD : MorphModel.cross(string, string)
  * Takes two genomes of equal length
@@ -142,7 +142,7 @@ MorphModel.prototype.cross = function(genomeString1, genomeString2)
 	}
     return [genomeCharArray1.join().replace(/,/gi,""), 
             genomeCharArray2.join().replace(/,/gi,"")];
-}
+};
 
 /**METHOD : MorphModel.mutate(string)
  * Takes one "crossed-over" genome
@@ -186,4 +186,4 @@ MorphModel.prototype.mutate = function(genomeString)
 	{
 	    return genomeString;
 	}
-}
+};
